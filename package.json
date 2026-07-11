@@ -1,0 +1,17 @@
+{
+  "name": "typescript-data-structures-and-algorithms",
+  "version": "1.0.0",
+  "description": "Custom implementations of Data Structures and Algorithms in TypeScript",
+  "private": true,
+  "type": "module",
+
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
