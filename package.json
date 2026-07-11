@@ -4,14 +4,15 @@
   "description": "Custom implementations of Data Structures and Algorithms in TypeScript",
   "private": true,
   "type": "module",
-
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
-
   "devDependencies": {
+    "prettier": "^3.9.5",
     "typescript": "^5.9.2"
   }
 }
