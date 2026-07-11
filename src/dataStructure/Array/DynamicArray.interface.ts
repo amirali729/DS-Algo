@@ -1,6 +1,6 @@
 export interface DynamicArrayInterface<T> {
   get(index: number): T;
-  set(index: number, value: number): void;
+  set(index: number, value: T): void;
   push(value: T): void;
   pop(): T;
   deletedAt(index: number): T;
