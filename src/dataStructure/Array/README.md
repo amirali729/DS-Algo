@@ -103,7 +103,6 @@ Throughout this section, we will gradually implement features such as:
 
 Each feature will be implemented manually to understand the underlying logic.
 
-
 ## 🧠 What You'll Learn
 
 This section focuses on understanding:
@@ -116,7 +115,7 @@ This section focuses on understanding:
 - Algorithmic thinking
 - Clean TypeScript implementation
 
-Instead of memorizing operations, you'll learn *why* they behave the way they do.
+Instead of memorizing operations, you'll learn _why_ they behave the way they do.
 
 ---
 

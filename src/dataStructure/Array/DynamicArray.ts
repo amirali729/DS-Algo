@@ -1,92 +1,74 @@
-import { DynamicArrayInterface } from "./DynamicArray.interface.js";
+import { DynamicArrayInterface } from './DynamicArray.interface.js';
 
 class DynamicArray<T> implements DynamicArrayInterface<T> {
-
   private capacity: number;
 
   private length: number;
 
-  private data: (T | undefined)[]
+  private data: (T | undefined)[];
 
   constructor(...values: T[]) {
+    this.capacity = Math.max(2, values.length);
 
-    this.capacity = Math.max(2, values.length)
+    this.data = new Array(this.capacity);
 
-    this.data = new Array(this.capacity)
-
-    this.length = values.length
+    this.length = values.length;
 
     for (let i = 0; i < values.length; i++) {
-
-      this.data[i] = values[i]
-
+      this.data[i] = values[i];
     }
-
   }
 
   get(index: number): T {
-
     if (index < 0 || index >= this.length) {
-
-      throw new Error("Index out of bound")
-
+      throw new Error('Index out of bound');
     }
 
     return this.data[index] as T;
-
   }
 
   set(index: number, value: T) {
-
     if (index < 0 || index >= this.length) {
-
-      throw new Error("Index out of bound")
-
+      throw new Error('Index out of bound');
     }
 
     this.data[index] = value;
-
   }
 
   resize() {
+    this.capacity *= 2;
 
-    this.capacity *= 2
-
-    let newData = new Array(this.capacity)
+    let newData = new Array(this.capacity);
 
     for (let i = 0; i < this.length; i++) {
-
-      newData[i] = this.data[i]
-
+      newData[i] = this.data[i];
     }
 
-    this.data = newData
-
+    this.data = newData;
   }
   push(value: T) {
     if (this.capacity == this.length) {
-      this.resize()
+      this.resize();
     }
-    this.data[this.length] = value
+    this.data[this.length] = value;
     this.length++;
   }
   pop(): T {
-    if (this.length == 0) throw new Error("Array is Empty")
-    let value = this.data[this.length - 1] as T
-    this.data[this.length - 1] = undefined
-    this.length--
-    return value
+    if (this.length == 0) throw new Error('Array is Empty');
+    let value = this.data[this.length - 1] as T;
+    this.data[this.length - 1] = undefined;
+    this.length--;
+    return value;
   }
   indexOf(value: T): number {
-    if (this.length === 0) return -1
+    if (this.length === 0) return -1;
     for (let i = 0; i < this.length; i++) {
-      if (value === this.data[i]) return i
-
+      if (value === this.data[i]) return i;
     }
-    return -1
+    return -1;
   }
   valueAt(index: number): T {
-    if (index < 0 || index > this.length) throw new Error("index out of bound");
+    if (index < 0 || index > this.length) throw new Error('index out of bound');
     return this.data[index] as T;
   }
 
@@ -99,28 +81,27 @@ class DynamicArray<T> implements DynamicArrayInterface<T> {
   }
 
   deletedAt(index: number): T {
-    if (index < 0 || index > this.length) throw new Error("index out of bound");
+    if (index < 0 || index > this.length) throw new Error('index out of bound');
 
     let value = this.data[index] as T;
     for (let i = index; i < this.length - 1; i++) {
       this.data[i] = this.data[i + 1];
     }
 
-    this.data[this.length - 1] = undefined
+    this.data[this.length - 1] = undefined;
     this.length--;
     return value;
   }
 
   insertAt(index: number, value: T): void {
-    if (index < 0 || index > this.length) throw new Error("index out of bound");
+    if (index < 0 || index > this.length) throw new Error('index out of bound');
     if (this.length === this.capacity) {
       this.resize();
     }
     for (let i = this.length; i > index; i--) {
-      this.data[i] = this.data[i - 1]
+      this.data[i] = this.data[i - 1];
     }
     this.data[index] = value;
     this.length++;
   }
-
 }

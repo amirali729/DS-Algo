@@ -9,6 +9,4 @@ export interface DynamicArrayInterface<T> {
   valueAt(index: number): T;
   sizeOf(): number;
   ToArray(): T[];
-
 }
-
