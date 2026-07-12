@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "dev": "tsx src/index.ts",
     "watch": "tsc --watch",
     "clean": "rm -rf dist",
     "format": "prettier --write .",
