@@ -1,6 +1,6 @@
 import { DynamicArrayInterface } from './DynamicArray.interface.js';
 
-class DynamicArray<T> implements DynamicArrayInterface<T> {
+export class DynamicArray<T> implements DynamicArrayInterface<T> {
   private capacity: number;
 
   private length: number;
@@ -103,5 +103,29 @@ class DynamicArray<T> implements DynamicArrayInterface<T> {
     }
     this.data[index] = value;
     this.length++;
+  }
+
+  myMap(callback: Function): T[] {
+    let MynewArray = [];
+    for (let i = 0; i < this.length; i++) {
+      MynewArray[i] = callback(this.data[i]);
+    }
+    return MynewArray;
+  }
+
+  filter(callback: (value: T) => boolean): T[] {
+    let MynewArray = [];
+    for (let i = 0; i < this.length; i++) {
+      if (callback(this.data[i] as T)) {
+        MynewArray.push(this.data[i] as T);
+      }
+    }
+    return MynewArray;
+  }
+
+  lastIndex(): number {
+    if (this.length === 0) throw new Error('Array is Empty');
+
+    return this.length;
   }
 }

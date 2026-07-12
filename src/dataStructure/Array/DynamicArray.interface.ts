@@ -9,4 +9,7 @@ export interface DynamicArrayInterface<T> {
   valueAt(index: number): T;
   sizeOf(): number;
   ToArray(): T[];
+  myMap(callback: Function): T[];
+  filter(callback: (value: T) => boolean): T[];
+  lastIndex(): number;
 }
