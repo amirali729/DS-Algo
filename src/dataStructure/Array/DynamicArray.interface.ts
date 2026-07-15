@@ -13,3 +13,6 @@ export interface DynamicArrayInterface<T> {
   filter(callback: (value: T) => boolean): T[];
   lastIndex(): number;
 }
+export interface NumberDynamicArray<T> {
+
+}

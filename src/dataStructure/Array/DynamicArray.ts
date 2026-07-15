@@ -129,3 +129,6 @@ export class DynamicArray<T> implements DynamicArrayInterface<T> {
     return this.length;
   }
 }
+export class NumberDynamicArray extends DynamicArray<number> implements DynamicArrayInterface<Number> {
+
+}
